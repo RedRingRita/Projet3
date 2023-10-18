@@ -186,3 +186,28 @@ footer nav ul {
 	margin: 2em
 }
 
+.filtres {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 50px;
+}
+
+a:link{
+	text-decoration: none;
+}
+
+.filtres button{
+	border: #1D6154 1px solid;
+	background-color: white;
+	border-radius: 60px;
+	padding: 0.5em;
+	margin: 0.5em;
+	color: #1D6154;
+	font-weight: bold;
+	font-family: syne;
+}
+
+.filtres button:active{
+	background-color: #1D6154;
+	color: white;
+}
