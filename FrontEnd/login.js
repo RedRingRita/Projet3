@@ -1,44 +1,47 @@
-// Fonction permettant de vérifier les accréditations entrées dans le formulaire de login
-function validerLogin(email, mdp){
-    if (email !== "sophie.bluel@test.tld"){
-        throw new Error ("Email ou mot de passe incorrect")
-    }
-
-    if(mdp !== "S0phie"){
-        throw new Error ("Email ou mot de passe incorrect")
-    }
-}
-
 // Fonction d'intégration du message d'erreur dans le HTML
 function afficherMessageErreur(message){
-    let erreurMessage = document.getElementById("erreurMessage")
+    let erreurMessage = document.querySelector(".erreurMessage")
 
     if (!erreurMessage){
-        let sectionLogin = document.getElementById("login")
+        let sectionLogin = document.querySelector(".formulaire")
         erreurMessage = document.createElement("p")
-        erreurMessage.id = "erreurMessage"
+        erreurMessage.classList = "erreurMessage"
 
-        sectionLogin.append(erreurMessage)
+        sectionLogin.prepend(erreurMessage)
     }
     erreurMessage.innerText = message
 }
 
-// Fonction qui s'occupe de gérer les valeurs entrées dans le formulaire
-function gererLogin(){
+// Fonction affichant un message d'erreur si mauvaise accréditation
+function gererLoginV2(log){
     try{
-        let champsMail = document.getElementById("mail")
-        let mail = champsMail.value
-
-        let champsMdp = document.getElementById("passw")
-        let mdp = champsMdp.value
-        validerLogin(mail, mdp)    
-    } catch(erreur){
+        if(log.email !== "sophie.bluel@test.tld" || log.password !== "S0phie"){
+            throw new Error ("Email ou mot de passe incorrect")
+        }
+    }catch(erreur){
         afficherMessageErreur(erreur.message)
     }
 }
 
+//Ajout d'un listener sur le bouton submit
 let formLogin = document.querySelector("form")
-formLogin.addEventListener("submit", (event) =>{
+formLogin.addEventListener("submit", async (event) =>{
     event.preventDefault()
-    gererLogin()
+
+    const log = {
+        email: event.target.querySelector("[name=mail]").value,
+        password: event.target.querySelector("[name=passw]").value
+    }
+
+    const logJson = JSON.stringify(log)
+    
+    const reponse = await fetch("http://localhost:5678/api/users/login", {
+        method : "POST",
+        headers: {"Content-Type": "application/json"},
+        body: logJson
+    })
+    const token = await reponse.json()
+
+    console.log(token)
+    gererLoginV2(log)
 })
