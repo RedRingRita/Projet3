@@ -12,11 +12,13 @@ function afficherMessageErreur(message){
     erreurMessage.innerText = message
 }
 
-// Fonction affichant un message d'erreur si mauvaise accréditation
+//Un message d'erreur si mauvais login sinon retour à la page d'accueil
 function gererLoginV2(log){
     try{
         if(log.email !== "sophie.bluel@test.tld" || log.password !== "S0phie"){
             throw new Error ("Email ou mot de passe incorrect")
+        }else {
+            window.location.href = "index.html";
         }
     }catch(erreur){
         afficherMessageErreur(erreur.message)
@@ -24,6 +26,7 @@ function gererLoginV2(log){
 }
 
 //Ajout d'un listener sur le bouton submit
+let idToken
 let formLogin = document.querySelector("form")
 formLogin.addEventListener("submit", async (event) =>{
     event.preventDefault()
@@ -40,8 +43,11 @@ formLogin.addEventListener("submit", async (event) =>{
         headers: {"Content-Type": "application/json"},
         body: logJson
     })
-    const token = await reponse.json()
+    idToken = await reponse.json()
 
-    console.log(token)
+    //placement de idToken dans le local storage pour maintenir la connection ensuite
+    window.localStorage.setItem("token", JSON.stringify(idToken))
+
+    console.log(idToken)
     gererLoginV2(log)
 })
