@@ -244,9 +244,22 @@ a:visited{
 
 .modal-wrapper{
 	overflow: auto;
-	width: 600px;
+	width: 630px;
 	max-width: calc(100vw - 20px);
 	max-height: calc(100vh - 20px);
 	padding: 20px;
 	background-color: #fff;
+	border-radius: 10px;
+}
+
+.modal-gallery {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+
+.modal-gallery img{
+	width: 100%;
 }

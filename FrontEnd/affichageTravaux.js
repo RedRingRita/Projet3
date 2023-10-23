@@ -23,6 +23,7 @@ function genererTravaux(travaux){
         
         // Attribution des Figures à la div "gallery"
         const gallery = document.querySelector(".gallery")
+        const modalGallery = document.querySelector(".modal-gallery")
         
         gallery.appendChild(fiche)
         fiche.appendChild(imageElement)
@@ -30,7 +31,30 @@ function genererTravaux(travaux){
     }
 }
 
+function genererTravauxModale(travaux){
+    for (let i = 0 ; i < travaux.length ; i++){
+    
+        const figure = travaux[i]
+        
+        //Création de la balise figure
+        const fiche = document.createElement("figure")
+    
+        //Création de la balise img avec la source et le alt
+        const imageElement = document.createElement("img")
+        imageElement.src = figure.imageUrl
+        imageElement.alt = figure.title
+        
+        // Attribution des Figures à la div "gallery"
+        const gallery = document.querySelector(".gallery")
+        const modalGallery = document.querySelector(".modal-gallery")
+        
+        modalGallery.appendChild(fiche)
+        fiche.appendChild(imageElement)
+    }
+}
+
 genererTravaux(travaux)
+genererTravauxModale(travaux)
 
 // Les différents boutons filtre
 
