@@ -5,10 +5,13 @@ let token = JSON.parse(tokenStored)
 
 if (token.token !== null){
     const loginOut = document.querySelector(".loginOut")
-    loginOut.innnerText = `
-        <button>logout</button>
+    loginOut.innerHTML= `
+    <a href="index.html">logout</a>
     `
-    console.log(loginOut)
+
+    // const projectsModif = document.querySelector("hidden")
+    // console.log(projectsModif)
+    // projectsModif.removeAttribute("hidden")
 }
 
 
