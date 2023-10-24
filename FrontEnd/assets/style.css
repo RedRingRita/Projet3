@@ -228,8 +228,7 @@ a:visited{
 	color: red;
 }
 
-
-/* Gestion de la modale */
+/* Bouton modifier travaux */
 
 .projects{
 	display: flex;
@@ -254,6 +253,7 @@ a:visited{
 	align-items: center;
 	height: 10px;
 	/* border: solid cadetblue; */
+	padding-left: 20px;
 }
 
 .projects img{
@@ -269,6 +269,8 @@ a:visited{
 .btnModif a:hover{
 	text-decoration: underline;
 }
+
+/* Gestion de la modale */
 
 .modal{
 	position: fixed;
@@ -321,10 +323,22 @@ a:visited{
 	padding: 20px;
 }
 
-.addPhotoButton{
+.fa-xmark{
+	width: 0.8em;
+	height: 0.8em;
+	border: solid transparent;
 	display: flex;
 	justify-content: center;
-	
+	align-items: center;
+}
+
+.fa-xmark:hover{
+	border: solid black;
+}
+
+.addPhotoButton{
+	display: flex;
+	justify-content: center;	
 }
 
 .addPhotoButton button{
@@ -338,7 +352,7 @@ a:visited{
 	margin: 2em;
 }
 
-.trash{
+.fa-trash-can{
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -346,8 +360,8 @@ a:visited{
 	position: relative;
 	top: 25px;
 	left: 55px;
-	height: 10px;
-	width: 10px;
+	width: 20px;
+	height: 20px;
 	background-color: black;
 	border-radius: 2px;
 }

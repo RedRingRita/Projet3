@@ -50,7 +50,11 @@ formLogin.addEventListener("submit", async (event) =>{
     gererLoginV2(log)
 })
 
-let logout = document.querySelector(".loginOut a")
-logout.addEventListener("click", () => {
-    window.localStorage.clear()
-})
+try{
+    let logout = document.querySelector(".loginOut a")
+    logout.addEventListener("click", () => {
+        window.localStorage.clear()
+    })
+}catch{
+    console.log("Déconnecté")
+}

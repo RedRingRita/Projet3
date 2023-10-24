@@ -47,9 +47,9 @@ function genererTravauxModale(travaux){
         imageElement.alt = figure.title
 
         //Création de l'icone poubelle pour supprimer des travaux
-        let trashElement = document.createElement("img")
-        trashElement.classList.add("trash")
-        trashElement.src="assets/icons/trashCanWhite.png"
+        let trashElement = document.createElement("i")
+        trashElement.classList.add("fa-solid")
+        trashElement.classList.add("fa-trash-can")
 
         
         // Attribution de Figure à la div "modal-gallery"
