@@ -6,7 +6,7 @@ let token = JSON.parse(tokenStored)
 if (token.token !== null){
     const loginOut = document.querySelector(".loginOut")
     loginOut.innerHTML= `
-    <a href="index.html">logout</a>
+    <a href="index.html" class="logout">logout</a>
     `
 
     const filtres = document.querySelector(".filtres")
@@ -14,8 +14,4 @@ if (token.token !== null){
 
     const jsModal = document.querySelector(".js-modal")
     jsModal.style.display=null
-
-    // const projectsModif = document.querySelector("hidden")
-    // console.log(projectsModif)
-    // projectsModif.removeAttribute("hidden")
 }

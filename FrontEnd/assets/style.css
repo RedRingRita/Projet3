@@ -4,7 +4,7 @@
 */
 
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h1, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -15,7 +15,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video, button {
+time, mark, audio, video, button, span {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -230,6 +230,46 @@ a:visited{
 
 
 /* Gestion de la modale */
+
+.projects{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* border: solid 1px red; */
+	margin: 50px;
+}
+
+.elements{
+	display: flex;
+	align-items: center;
+	/* border: solid violet; */
+}
+
+.elements h2{
+	/* border: solid #1D6154; */
+}
+
+.btnModif{
+	display: flex;
+	align-items: center;
+	height: 10px;
+	/* border: solid cadetblue; */
+}
+
+.projects img{
+	width: 1.5em;
+	height: 1.5em;
+	margin: 0px 10px 0px 20px;
+}
+
+.btnModif a{
+	text-decoration: none;
+}
+
+.btnModif a:hover{
+	text-decoration: underline;
+}
+
 .modal{
 	position: fixed;
 	display: flex;
@@ -298,7 +338,7 @@ a:visited{
 	margin: 2em;
 }
 
-.fa-trash-can{
+.trash{
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -306,8 +346,8 @@ a:visited{
 	position: relative;
 	top: 25px;
 	left: 55px;
-	width: 20px;
-	height: 20px;
+	height: 10px;
+	width: 10px;
 	background-color: black;
 	border-radius: 2px;
 }

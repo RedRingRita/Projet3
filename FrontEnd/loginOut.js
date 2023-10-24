@@ -47,7 +47,10 @@ formLogin.addEventListener("submit", async (event) =>{
 
     //placement de idToken dans le local storage pour maintenir la connection ensuite
     window.localStorage.setItem("token", JSON.stringify(idToken))
-
-    console.log(idToken)
     gererLoginV2(log)
+})
+
+let logout = document.querySelector(".loginOut a")
+logout.addEventListener("click", () => {
+    window.localStorage.clear()
 })

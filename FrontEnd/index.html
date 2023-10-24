@@ -9,17 +9,18 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<script src="https://kit.fontawesome.com/7f5535ffac.js" crossorigin="anonymous"></script>
+	<!-- <script src="https://kit.fontawesome.com/7f5535ffac.js" crossorigin="anonymous"></script> -->
 	<script type="module" src="affichageTravaux.js"></script>
 	<script type="module" src="admin.js" ></script>
 	<script type="module" src="modal.js"></script>
+	<script type="module" src="loginOut.js" defer></script>
 </head>
 <body>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li ><a href="index.html">projets</a></li>
+			<li><a href="index.html">projets</a></li>
 			<li><a href="#contact">contact</a></li>
 			<li class="loginOut"><a href="login.html">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
@@ -40,10 +41,19 @@
 	</section>
 	<section id="portfolio">
 		<div>
-			<h2 class="projects">Mes Projets</h2>
-			
 			<!-- Contenu pour la modal -->
-			<a href="#modal1" class="js-modal" style="display: none;">Ouvrir la boite modal</a>
+			<div class="projects">
+				<div class="elements">
+					<h2>
+						Mes Projets
+					</h2>
+					<div class="btnModif">
+						<img src="assets/icons/pen2Square.png" alt="Icone de bouton modifier">
+						<a href="#modal1" class="js-modal" style="display: none;">Modifier</a>
+					</div>
+				</div>
+			</div>
+				
 			<aside id="modal1" class="modal" aria-hidden="true" style="display: none;">
 				<div class="modal-wrapper js-modal-stop">
 					<div class="closeButton">
