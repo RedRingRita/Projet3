@@ -23,9 +23,11 @@ function genererTravaux(travaux){
         
         // Attribution des Figures à la div "gallery"
         const gallery = document.querySelector(".gallery")
-        const modalGallery = document.querySelector(".modal-gallery")
+        // const modalGallery = document.querySelector(".modal-gallery")
         
         gallery.appendChild(fiche)
+        // modalGallery.appendChild(fiche)
+        
         fiche.appendChild(imageElement)
         fiche.appendChild(figcaptionElement)
     }
@@ -43,12 +45,18 @@ function genererTravauxModale(travaux){
         const imageElement = document.createElement("img")
         imageElement.src = figure.imageUrl
         imageElement.alt = figure.title
+
+        //Création de l'icone poubelle pour supprimer des travaux
+        let trashElement = document.createElement("i")
+        trashElement.classList.add("fa-solid")
+        trashElement.classList.add("fa-trash-can")
+
         
-        // Attribution des Figures à la div "gallery"
-        const gallery = document.querySelector(".gallery")
+        // Attribution de Figure à la div "modal-gallery"
         const modalGallery = document.querySelector(".modal-gallery")
         
         modalGallery.appendChild(fiche)
+        fiche.appendChild(trashElement)
         fiche.appendChild(imageElement)
     }
 }

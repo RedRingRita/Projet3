@@ -9,9 +9,10 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<script src="https://kit.fontawesome.com/7f5535ffac.js" crossorigin="anonymous"></script>
 	<script type="module" src="affichageTravaux.js"></script>
 	<script type="module" src="admin.js" ></script>
-	<script type="module"  src="modal.js"></script>
+	<script type="module" src="modal.js"></script>
 </head>
 <body>
 <header>
@@ -38,20 +39,29 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2 class="projects">Mes Projets</h2>
-		
-		<!-- Contenu pour la modal -->
-		<a href="#modal1" class="js-modal">Ouvrir la boite modal</a>
-		<aside id="modal1" class="modal" aria-hidden="true" role="dialog" style="display: none;">
-			<div class="modal-wrapper js-modal-stop">
-				<button class="js-modal-close">Fermer la boite</button>
-				<div>Galerie photo</div>
-				<div class="modal-gallery">
-					<!-- Les travaux de la modal seront générés ici -->
+		<div>
+			<h2 class="projects">Mes Projets</h2>
+			
+			<!-- Contenu pour la modal -->
+			<a href="#modal1" class="js-modal" style="display: none;">Ouvrir la boite modal</a>
+			<aside id="modal1" class="modal" aria-hidden="true" style="display: none;">
+				<div class="modal-wrapper js-modal-stop">
+					<div class="closeButton">
+						<i class="js-modal-close fa-solid fa-xmark fa-xl"></i>
+					</div>
+					<h3>Galerie photo</h3>
+					<div class="galleryContent">
+						<div class="modal-gallery">
+							<!-- Les travaux de la modal seront générés ici -->
+						</div>
+					</div>
+					<div class="addPhotoButton">
+						<button>Ajouter une photo</button>
+					</div>
 				</div>
-			</div>
-		</aside>
-		<!-- Fin contenu pour la modal -->
+			</aside>
+			<!-- Fin contenu pour la modal -->
+		</div>
 
 		<ul class="filtres">
 			<li><button class="btn-tous">Tous</button></li>

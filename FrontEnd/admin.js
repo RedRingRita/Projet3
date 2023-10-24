@@ -9,11 +9,13 @@ if (token.token !== null){
     <a href="index.html">logout</a>
     `
 
+    const filtres = document.querySelector(".filtres")
+    filtres.style.display="none"
+
+    const jsModal = document.querySelector(".js-modal")
+    jsModal.style.display=null
+
     // const projectsModif = document.querySelector("hidden")
     // console.log(projectsModif)
     // projectsModif.removeAttribute("hidden")
 }
-
-
-
-

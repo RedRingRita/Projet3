@@ -15,7 +15,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, button {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -252,8 +252,13 @@ a:visited{
 	border-radius: 10px;
 }
 
+.galleryContent{
+	border-bottom: 1px solid #b3b3b3;
+	padding-bottom: 4em;
+	margin: 0 5em 0 5em;
+}
+
 .modal-gallery {
-	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-column-gap: 20px;
@@ -263,3 +268,47 @@ a:visited{
 .modal-gallery img{
 	width: 100%;
 }
+
+.modal-wrapper h3{
+	font-size: 2em;
+	text-align: center;
+	margin: 1em;
+}
+
+.closeButton {
+	display: flex;
+	justify-content: flex-end;
+	padding: 20px;
+}
+
+.addPhotoButton{
+	display: flex;
+	justify-content: center;
+	
+}
+
+.addPhotoButton button{
+	width: 237px;
+	height: 36px;
+	font: inherit;
+	color: white;
+	border: none;
+	border-radius: 60px;
+	background: #1D6154;
+	margin: 2em;
+}
+
+.fa-trash-can{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	position: relative;
+	top: 25px;
+	left: 55px;
+	width: 20px;
+	height: 20px;
+	background-color: black;
+	border-radius: 2px;
+}
+
