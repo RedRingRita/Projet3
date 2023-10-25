@@ -1,4 +1,5 @@
 let modal = null
+let contenuModal = document.querySelector(".modal-wrapper")
 
 const openModal = function(e) {
     e.preventDefault
@@ -22,6 +23,7 @@ const closeModal = function (e) {
     modal.querySelector(".js-modal-close").removeEventListener("click", closeModal)
     modal.querySelector(".js-modal-stop").removeEventListener("click", stopPropagation)
     modal = null
+    
 }
 
 const stopPropagation = function (e) {
@@ -37,3 +39,33 @@ window.addEventListener("keydown" , function(e){
         closeModal(e)
     }
 })
+
+let boutonAjouter = document.querySelector(".addPhotoButton")
+boutonAjouter.addEventListener("click", () =>{
+    console.log("Bouton ajouter photo clicked")
+    contenuModal.innerHTML = `
+        <button class="closeButton js-modal-close">
+        <i class="fa-solid fa-xmark fa-xl"></i>
+    </button>
+    <h3>Ajout photo</h3>
+    <div class="galleryContent">
+        <div class="glisserPhoto">
+            <div>+ Ajouter photo</div>
+            <div>jpg, png : 4mo max</div>
+        </div>
+        <section id="ajout">
+            <form action="#" method="post">
+                <label for="titre">Titre</label>
+                <input type="text" name="titre" id="titre">
+                <label for="categorie">Catégorie</label>
+                <input type="text" name="categorie" id="categorie">
+            </form>
+        </section>
+    </div>
+
+    <div class="valider">
+        <button>Valider</button>
+    </div>
+    `
+})
+

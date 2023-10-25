@@ -2,6 +2,11 @@
 const reponse = await fetch("http://localhost:5678/api/works")
 const travaux = await reponse.json()
 
+//Récupération du token lors du login (format 'string')
+let tokenStored = window.localStorage.getItem("token")
+//Transformation du string tokenStored en objet JSON
+let token = JSON.parse(tokenStored)
+
 // Génération des différents éléments pour afficher les travaux
 
 function genererTravaux(travaux){
@@ -47,22 +52,46 @@ function genererTravauxModale(travaux){
         imageElement.alt = figure.title
 
         //Création de l'icone poubelle pour supprimer des travaux
+        let btnDelete = document.createElement("button")
+        btnDelete.classList.add("delete")
+        btnDelete.id = i+1
         let trashElement = document.createElement("i")
         trashElement.classList.add("fa-solid")
         trashElement.classList.add("fa-trash-can")
 
         
+        btnDelete.addEventListener("click", (event)=>{
+            console.log(btnDelete.id, figure.id)
+            fetch(`http://localhost:5678/api/works/${figure.id}`, {
+                method : "DELETE",
+                headers: {"Authorization" : `Bearer ${token.token}`},
+            })
+        })
+        
         // Attribution de Figure à la div "modal-gallery"
         const modalGallery = document.querySelector(".modal-gallery")
         
         modalGallery.appendChild(fiche)
-        fiche.appendChild(trashElement)
+        btnDelete.appendChild(trashElement)
+        fiche.appendChild(btnDelete)
         fiche.appendChild(imageElement)
     }
 }
 
 genererTravaux(travaux)
 genererTravauxModale(travaux)
+
+// attacheEventsuppTravaux()
+
+// function attacheEventsuppTravaux(){
+//     const supp = document.querySelectorAll(".delete")
+//     console.log(supp)
+//     for (let i = 0 ; i < supp.length ; i++){
+//         supp[i].addEventListener("click", ()=>{
+//             console.log(supp[i].id)
+//         })
+//     }
+// }
 
 // Les différents boutons filtre
 

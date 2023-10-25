@@ -141,6 +141,12 @@ li:hover {
 	width: 50%;
 	margin: auto;
 }
+
+#ajout{
+	width: 100%;
+	margin: auto;
+}
+
 #contact, #login > * {
 	text-align: center;
 
@@ -148,20 +154,20 @@ li:hover {
 #contact h2, #login h2{
 	margin-bottom: 20px;
 }
-#contact form, #login form {
+#contact form, #login form, #ajout form{
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input, #login input {
+#contact input, #login input, #ajout input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label, #login label {
+#contact label, #login label, #ajout label {
 	margin: 2em 0 1em 0;
 }
 #contact textarea {
@@ -190,6 +196,7 @@ footer nav ul {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 50px;
+	/* border: solid green; */
 }
 
 nav a:link{
@@ -234,18 +241,14 @@ a:visited{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin: 10px;
 	/* border: solid 1px red; */
-	margin: 50px;
 }
 
 .elements{
 	display: flex;
 	align-items: center;
 	/* border: solid violet; */
-}
-
-.elements h2{
-	/* border: solid #1D6154; */
 }
 
 .btnModif{
@@ -317,31 +320,31 @@ a:visited{
 	margin: 1em;
 }
 
-.closeButton {
-	display: flex;
-	justify-content: flex-end;
-	padding: 20px;
-}
-
 .fa-xmark{
 	width: 0.8em;
 	height: 0.8em;
-	border: solid transparent;
+	border: solid greenyellow;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.fa-xmark:hover{
+.closeButton {
+	background-color: transparent;
+	border: solid hotpink;
+	align-self: flex-end;
+}
+
+.closeButton:hover{
 	border: solid black;
 }
 
-.addPhotoButton{
+.addPhotoButton, .valider{
 	display: flex;
 	justify-content: center;	
 }
 
-.addPhotoButton button{
+.addPhotoButton button, .valider button{
 	width: 237px;
 	height: 36px;
 	font: inherit;
@@ -352,7 +355,7 @@ a:visited{
 	margin: 2em;
 }
 
-.fa-trash-can{
+.delete{
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -366,3 +369,18 @@ a:visited{
 	border-radius: 2px;
 }
 
+.glisserPhoto{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 50px;
+	background-color: #E8F1F6;
+}
+
+.addFromPc{
+	background-color: #CBD6DC;
+	color: #306685;
+	padding: 10px;
+}
