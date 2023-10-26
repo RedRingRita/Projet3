@@ -60,7 +60,7 @@ function genererTravauxModale(travaux){
         trashElement.classList.add("fa-trash-can")
 
         
-        btnDelete.addEventListener("click", (event)=>{
+        btnDelete.addEventListener("click", ()=>{
             console.log(btnDelete.id, figure.id)
             fetch(`http://localhost:5678/api/works/${figure.id}`, {
                 method : "DELETE",

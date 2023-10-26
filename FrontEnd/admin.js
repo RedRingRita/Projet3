@@ -15,7 +15,7 @@ try{
         const filtres = document.querySelector(".filtres")
         filtres.style.display="none"
         
-        const jsModal = document.querySelector(".js-modal")
+        const jsModal = document.querySelector(".js-modal1")
         jsModal.style.display=null
     }
 }catch{
