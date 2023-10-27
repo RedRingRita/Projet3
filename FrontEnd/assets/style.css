@@ -161,13 +161,26 @@ li:hover {
 	flex-direction: column;
 }
 
-#contact input, #login input, #ajout input {
+#contact input, #login input, #ajout input{
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label, #login label, #ajout label {
+
+#ajout .tailleMax{
+	text-align: center;
+}
+
+#ajout select{
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	background-color: white;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+#contact label, #login label{
 	margin: 2em 0 1em 0;
 }
 #contact textarea {
@@ -320,15 +333,22 @@ a:visited{
 	margin: 1em;
 }
 
-.conteneurNavModal{
+.navModal1{
+	display: flex;
+	justify-content: flex-end;
+	/* border: solid 1px violet; */
+}
+
+.navModal2{
 	display: flex;
 	justify-content: space-between;
-	border: solid 1px violet;
+	/* border: solid 1px violet; */
 }
 
 .closeButton, .backButton {
 	background-color: transparent;
-	border: solid transparent;
+	border: solid 1px transparent;
+	padding: 0.2em;
 }
 
 .closeButton{
@@ -336,7 +356,7 @@ a:visited{
 }
 
 .closeButton:hover, .backButton:hover{
-	border: solid black;
+	border: solid 1px black;
 }
 
 .btnPhotoConteneur{
@@ -345,20 +365,28 @@ a:visited{
 	/* border: solid blue; */
 }
 
-.addPhotoButton div{
+.addPhotoButton div, .btnPhotoConteneur button{
 	color: white;
-	margin: 1em;
+	margin: 0.9em;
 }
 
-.addPhotoButton, .validerAjoutPhoto button{
+.addPhotoButton{
 	width: 50%;
-	font: inherit;
-	color: white;
+	font-size: 1.3em;
 	border-radius: 60px;
 	background: #1D6154;
 	margin: 2em;
 	text-align: center;
 	/* border: solid red; */
+}
+
+.btnPhotoConteneur button{
+	width: 50%;
+	font-size: 1.3em;
+	border-radius: 60px;
+	background: #1D6154;
+	padding: 1em;
+	text-align: center;
 }
 
 .modal-wrapper a{
@@ -382,11 +410,10 @@ a:visited{
 .glisserPhoto{
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 	background-color: #E8F1F6;
 	border-radius: 3px;
-	padding: 20px;
+	padding: 5px;
 }
 
 .fa-image{
@@ -395,11 +422,32 @@ a:visited{
 	color: #B9C5CC;
 }
 
-.addFromPc{
+.customUploadBtn{
 	font-size: 1.4em;
 	background-color: #CBD6DC;
 	color: #306685;
 	padding: 15px 40px 15px 40px;
-	margin: 10px;
+	border: solid 1px transparent;
 	border-radius: 50px;
+}
+
+#ajout label{
+	margin: 1em;
+} 
+
+.customUploadBtn:hover{
+	border: solid 1px #89b9b1;
+}
+
+.parcourirPc{
+	display: none;
+}
+
+.preview div{
+	display: flex;
+	justify-content: center;
+}
+
+.preview img{
+	width: 40%;
 }

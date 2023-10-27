@@ -3,7 +3,7 @@ function afficherMessageErreur(message){
     let erreurMessage = document.querySelector(".erreurMessage")
 
     if (!erreurMessage){
-        let sectionLogin = document.querySelector(".formulaire")
+        let sectionLogin = document.querySelector(".formLogin")
         erreurMessage = document.createElement("p")
         erreurMessage.classList = "erreurMessage"
 
@@ -25,32 +25,38 @@ function gererLoginV2(log){
     }
 }
 
-//Ajout d'un listener sur le bouton submit
+//Ajout d'un listener sur le bouton submit du formulaire de login
 let idToken
-let formLogin = document.querySelector("form")
-formLogin.addEventListener("submit", async (event) =>{
-    event.preventDefault()
+let formLogin = document.querySelector(".formLogin")
+try{
 
-    const log = {
-        email: event.target.querySelector("[name=mail]").value,
-        password: event.target.querySelector("[name=passw]").value
-    }
-
-    const logJson = JSON.stringify(log)
-    
-    const reponse = await fetch("http://localhost:5678/api/users/login", {
-        method : "POST",
-        headers: {"Content-Type": "application/json"},
-        body: logJson
+    formLogin.addEventListener("submit", async (event) =>{
+        event.preventDefault()
+        
+        const log = {
+            email: event.target.querySelector("[name=mail]").value,
+            password: event.target.querySelector("[name=passw]").value
+        }
+        
+        const logJson = JSON.stringify(log)
+        
+        const reponse = await fetch("http://localhost:5678/api/users/login", {
+            method : "POST",
+            headers: {"Content-Type": "application/json"},
+            body: logJson
+        })
+        idToken = await reponse.json()
+        
+        //placement de idToken dans le local storage pour maintenir la connection ensuite
+        window.localStorage.setItem("token", JSON.stringify(idToken))
+        gererLoginV2(log)
     })
-    idToken = await reponse.json()
-
-    //placement de idToken dans le local storage pour maintenir la connection ensuite
-    window.localStorage.setItem("token", JSON.stringify(idToken))
-    gererLoginV2(log)
-})
+}catch{
+    console.log("Y'a rien à voir")
+}
 
 try{
+    //Logout
     let logout = document.querySelector(".loginOut a")
     logout.addEventListener("click", () => {
         window.localStorage.clear()

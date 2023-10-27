@@ -59,7 +59,7 @@ function genererTravauxModale(travaux){
         trashElement.classList.add("fa-solid")
         trashElement.classList.add("fa-trash-can")
 
-        
+        //Gestion de la suppression des travaux
         btnDelete.addEventListener("click", ()=>{
             console.log(btnDelete.id, figure.id)
             fetch(`http://localhost:5678/api/works/${figure.id}`, {
@@ -80,18 +80,6 @@ function genererTravauxModale(travaux){
 
 genererTravaux(travaux)
 genererTravauxModale(travaux)
-
-// attacheEventsuppTravaux()
-
-// function attacheEventsuppTravaux(){
-//     const supp = document.querySelectorAll(".delete")
-//     console.log(supp)
-//     for (let i = 0 ; i < supp.length ; i++){
-//         supp[i].addEventListener("click", ()=>{
-//             console.log(supp[i].id)
-//         })
-//     }
-// }
 
 // Les différents boutons filtre
 
