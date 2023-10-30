@@ -62,23 +62,49 @@ let tokenStored = window.localStorage.getItem("token")
 //Transformation du string tokenStored en objet JSON
 let token = JSON.parse(tokenStored)
 
+
+let erreurMessage = document.querySelector(".erreurMessage")
+
 infoProjet.addEventListener("submit", (event) => {
   event.preventDefault()
 
   let projetFormdata = new FormData(event.target)
-
-  let formdataFinal = new FormData()
-
-  formdataFinal.append("projet", projetFormdata.get("projet").name)
-  formdataFinal.append("titre", projetFormdata.get("titre"))
-  formdataFinal.append("categorie", projetFormdata.get("categorie"))
-
   console.log(projetFormdata)
-  console.log(formdataFinal)
+
+  gererForm(projetFormdata)
 
   fetch("http://localhost:5678/api/works", {
       method: "POST",
       body: projetFormdata,
       headers: {"Authorization" : `Bearer ${token.token}`},
   })
+  .then((response) => {
+    if (response.ok) {
+      alert("Projet envoyé !")
+    }
+  })
 })
+
+// Fonction d'intégration du message d'erreur dans le HTML
+function afficherMessageErreur(message){
+
+  if (!erreurMessage){
+      let ajoutProjet = document.querySelector(".addProject")
+      erreurMessage = document.createElement("div")
+      erreurMessage.classList = "msgErreur"
+
+      ajoutProjet.appendChild(erreurMessage)
+  }
+  erreurMessage.innerText = message
+}
+
+//Fonction qui gère les informations du formulaire pour afficher ou non le message d'erreur
+function gererForm(form){
+  try{
+      if(form.get("title") === "" || form.get("category") === ""){
+          throw new Error ("Formulaire incomplet")
+      }
+  }catch(erreur){
+      afficherMessageErreur(erreur.message)
+  }
+}

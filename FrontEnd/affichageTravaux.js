@@ -66,6 +66,12 @@ function genererTravauxModale(travaux){
                 method : "DELETE",
                 headers: {"Authorization" : `Bearer ${token.token}`},
             })
+            .then((response) => {
+                if(response.ok) {
+                    console.log("Projet supprimé")
+                    fiche.remove()
+                }
+            })
         })
         
         // Attribution de Figure à la div "modal-gallery"
@@ -75,6 +81,7 @@ function genererTravauxModale(travaux){
         btnDelete.appendChild(trashElement)
         fiche.appendChild(btnDelete)
         fiche.appendChild(imageElement)
+        fiche.classList = figure.id
     }
 }
 

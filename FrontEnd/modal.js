@@ -61,10 +61,20 @@ backButton.addEventListener("click", () => {
     <i class="fa-regular fa-image fa-6x"></i>
     `
     
+    try{
+        let msgErreur = document.querySelector(".msgErreur")
+        let parentError = msgErreur.parentNode
+        
+        if(msgErreur){
+            parentError.removeChild(msgErreur)
+        }
+    }catch{}
+
     modal1.style.display = null
     modal2.style.display = "none"
 })
 
+//Fonction qui s'occupe de fermer la modal2
 const closeModal2 = function (e) {
     if (modal2 === null) return
     e.preventDefault
@@ -72,6 +82,14 @@ const closeModal2 = function (e) {
     preview.innerHTML = `
     <i class="fa-regular fa-image fa-6x"></i>
     `
+    try{
+        let msgErreur = document.querySelector(".msgErreur")
+        let parentError = msgErreur.parentNode
+        
+        if(msgErreur){
+            parentError.removeChild(msgErreur)
+        }
+    }catch{}
 
     modal2.style.display = "none"
     modal2.removeEventListener("click", closeModal1)

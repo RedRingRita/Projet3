@@ -407,6 +407,10 @@ a:visited{
 	border-radius: 2px;
 }
 
+.delete:hover{
+	background-color: red;
+}
+
 .glisserPhoto{
 	display: flex;
 	flex-direction: column;
@@ -450,4 +454,11 @@ a:visited{
 
 .preview img{
 	width: 40%;
+	max-height: 400px;
+}
+
+.msgErreur{
+	color: red;
+	text-align: center;
+	margin-top: 20px;
 }
