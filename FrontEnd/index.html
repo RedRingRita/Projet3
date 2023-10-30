@@ -95,33 +95,34 @@
 					</div>
 					<h3>Ajout photo</h3>
 					<div class="galleryContent">
-						<section id="ajout">
-							<form action="#" method="post" id="infoProjet">
+						<section id="ajout" class="addProject">
+							<form enctype="multipart/form-data" action="#" method="POST" id="infoProjet" name="newProject">
 
 								<div class="glisserPhoto">
 									<label for="projet" class="preview"><i class="fa-regular fa-image fa-6x"></i></label>
 									<label for="projet" class="customUploadBtn">+ Ajouter photo</label>
-									<input type="file" name="projet" accept=".jpg, .jpeg, .png" class="parcourirPc">
+									<input type="file" name="projet" accept=".jpg, .jpeg, .png" class="parcourirPc" required>
 									<label for="file" class="tailleMax">jpg, png : 4mo max</label>
 								</div>
 								
-								<label for="titre">Titre</label>
-								<input type="text" name="titre" id="titre">
+								<label for="title">Titre</label>
+								<input type="text" name="title" id="titre">
 
-								<label for="categorie">Catégorie</label>
-								<select name="categorie" id="categorie">
+								<label for="categoryId">Catégorie</label>
+								<select name="categoryId" id="categorie">
 									<option value="">--Choisissez une catégorie--</option>
 									<option value="1">Objets</option>
 									<option value="2">Appartements</option>
 									<option value="3">Hotels & restaurants</option>
 								</select>
-								<input type="submit" value="Envoyer">
-							</form>							
+								<input type="submit" value="Envoyer" class="submit" style="display: none;">
+							</form>
+							<div class="outputTest"></div>					
 						</section>						
 					</div>
 
 					<div class="btnPhotoConteneur">
-						<a href="#" class="addPhotoButton validerAjoutPhoto">
+						<a href="#" class="validerAjoutPhoto">
 							<div>Valider</div>
 						</a>
 					</div>

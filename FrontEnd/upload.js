@@ -1,11 +1,19 @@
 let upload = document.querySelector(".parcourirPc")
 let customUploadBtn = document.querySelector(".customUploadBtn")
+let submit = document.querySelector(".submit")
+let validerBtn = document.querySelector(".validerAjoutPhoto")
 let preview = document.querySelector(".preview")
 
 
 customUploadBtn.addEventListener("click", () => {
     upload.click()
 })
+
+validerBtn.addEventListener("click", () => {
+    submit.click()
+})
+
+
 
 upload.addEventListener("change", (previewProjet))
 
@@ -55,13 +63,22 @@ let tokenStored = window.localStorage.getItem("token")
 let token = JSON.parse(tokenStored)
 
 infoProjet.addEventListener("submit", (event) => {
-    event.preventDefault()
+  event.preventDefault()
 
-    let form = new FormData(event.target)
+  let projetFormdata = new FormData(event.target)
 
-    fetch("http://localhost:5678/api/works", {
-        method: "POST",
-        body: form,
-        headers: {"Authorization" : `Bearer ${token.token}`},
-    })
+  let formdataFinal = new FormData()
+
+  formdataFinal.append("projet", projetFormdata.get("projet").name)
+  formdataFinal.append("titre", projetFormdata.get("titre"))
+  formdataFinal.append("categorie", projetFormdata.get("categorie"))
+
+  console.log(projetFormdata)
+  console.log(formdataFinal)
+
+  fetch("http://localhost:5678/api/works", {
+      method: "POST",
+      body: projetFormdata,
+      headers: {"Authorization" : `Bearer ${token.token}`},
+  })
 })
