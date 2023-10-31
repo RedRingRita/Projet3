@@ -14,6 +14,8 @@ function genererTravaux(travaux){
     
         const figure = travaux[i]
         
+            //Génération de la galerie principale
+
         //Création de la balise figure
         const fiche = document.createElement("figure")
     
@@ -28,40 +30,38 @@ function genererTravaux(travaux){
         
         // Attribution des Figures à la div "gallery"
         const gallery = document.querySelector(".gallery")
-        // const modalGallery = document.querySelector(".modal-gallery")
-        
-        gallery.appendChild(fiche)
-        // modalGallery.appendChild(fiche)
-        
-        fiche.appendChild(imageElement)
-        fiche.appendChild(figcaptionElement)
-    }
-}
 
-function genererTravauxModale(travaux){
-    for (let i = 0 ; i < travaux.length ; i++){
-    
-        const figure = travaux[i]
-        
-        //Création de la balise figure
-        const fiche = document.createElement("figure")
-    
-        //Création de la balise img avec la source et le alt
-        const imageElement = document.createElement("img")
-        imageElement.src = figure.imageUrl
-        imageElement.alt = figure.title
+        fiche.appendChild(imageElement)
+        fiche.appendChild(figcaptionElement)        
+        gallery.appendChild(fiche)
+
+            //Génération de la galerie modal
+
+        const ficheModal = document.createElement("figureModal")
+
+        const imageElementModal = document.createElement("img")
+        imageElementModal.src = figure.imageUrl
+        imageElementModal.alt = figure.title
 
         //Création de l'icone poubelle pour supprimer des travaux
         let btnDelete = document.createElement("button")
         btnDelete.classList.add("delete")
-        btnDelete.id = i+1
         let trashElement = document.createElement("i")
         trashElement.classList.add("fa-solid")
         trashElement.classList.add("fa-trash-can")
 
+        // Attribution de Figure à la div "modal-gallery"
+        const modalGallery = document.querySelector(".modal-gallery")
+
+        btnDelete.appendChild(trashElement)
+        ficheModal.appendChild(btnDelete)
+
+        ficheModal.appendChild(imageElementModal)        
+        modalGallery.appendChild(ficheModal)
+
         //Gestion de la suppression des travaux
         btnDelete.addEventListener("click", ()=>{
-            console.log(btnDelete.id, figure.id)
+            console.log(figure.id)
             fetch(`http://localhost:5678/api/works/${figure.id}`, {
                 method : "DELETE",
                 headers: {"Authorization" : `Bearer ${token.token}`},
@@ -69,24 +69,15 @@ function genererTravauxModale(travaux){
             .then((response) => {
                 if(response.ok) {
                     console.log("Projet supprimé")
+                    ficheModal.remove()
                     fiche.remove()
                 }
             })
         })
-        
-        // Attribution de Figure à la div "modal-gallery"
-        const modalGallery = document.querySelector(".modal-gallery")
-        
-        modalGallery.appendChild(fiche)
-        btnDelete.appendChild(trashElement)
-        fiche.appendChild(btnDelete)
-        fiche.appendChild(imageElement)
-        fiche.classList = figure.id
     }
 }
 
 genererTravaux(travaux)
-genererTravauxModale(travaux)
 
 // Les différents boutons filtre
 

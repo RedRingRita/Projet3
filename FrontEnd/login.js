@@ -51,16 +51,4 @@ try{
         window.localStorage.setItem("token", JSON.stringify(idToken))
         gererLoginV2(log)
     })
-}catch{
-    console.log("Y'a rien à voir")
-}
-
-try{
-    //Logout
-    let logout = document.querySelector(".loginOut a")
-    logout.addEventListener("click", () => {
-        window.localStorage.clear()
-    })
-}catch{
-    console.log("Déconnecté")
-}
+}catch{}

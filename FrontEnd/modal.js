@@ -57,10 +57,8 @@ ajoutPhoto.addEventListener("click", (event) =>{
 let backButton = document.querySelector(".backButton")
 backButton.addEventListener("click", () => {
 
-    preview.innerHTML = `
-    <i class="fa-regular fa-image fa-6x"></i>
-    `
-    
+    preview.innerHTML = ` <i class="fa-regular fa-image fa-6x"></i> `
+
     try{
         let msgErreur = document.querySelector(".msgErreur")
         let parentError = msgErreur.parentNode
@@ -72,6 +70,7 @@ backButton.addEventListener("click", () => {
 
     modal1.style.display = null
     modal2.style.display = "none"
+    reset.click()
 })
 
 //Fonction qui s'occupe de fermer la modal2
@@ -79,9 +78,8 @@ const closeModal2 = function (e) {
     if (modal2 === null) return
     e.preventDefault
     
-    preview.innerHTML = `
-    <i class="fa-regular fa-image fa-6x"></i>
-    `
+    preview.innerHTML = `<i class="fa-regular fa-image fa-6x"></i>`
+
     try{
         let msgErreur = document.querySelector(".msgErreur")
         let parentError = msgErreur.parentNode
@@ -95,4 +93,5 @@ const closeModal2 = function (e) {
     modal2.removeEventListener("click", closeModal1)
     modal2.querySelector(".js-modal2-close").removeEventListener("click", closeModal1)
     modal2.querySelector(".js-modal2-stop").removeEventListener("click", stopPropagation)
+    reset.click()
 }
