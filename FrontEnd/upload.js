@@ -71,7 +71,6 @@ infoProjet.addEventListener("submit", (event) => {
   let projetFormdata = new FormData(event.target)
   let curFiles = upload.files
 
-  console.log(projetFormdata)
   gererForm(projetFormdata)
 
   fetch("http://localhost:5678/api/works", {
@@ -86,8 +85,7 @@ infoProjet.addEventListener("submit", (event) => {
       //id du dernier élément du tableau
       const idImage = travaux[travaux.length-1].id
       const srcImage = travaux[travaux.length-1].imageUrl
-
-      console.log(curFiles)
+      console.log(travaux.length)
 
       //Ajout de la nouvelle fiche à la galerie principale
       const fiche = document.createElement("figure")
@@ -132,10 +130,12 @@ infoProjet.addEventListener("submit", (event) => {
                 console.log("Projet supprimé")
                 ficheModal.remove()
                 fiche.remove()
-            }else{console.log(response.status)}
+            }
         })
     })
-    erreurMessage.remove()
+    if(erreurMessage){
+      erreurMessage.remove()
+    }
     }    
     reset.click()
     // curFiles = null
