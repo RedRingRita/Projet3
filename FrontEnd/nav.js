@@ -1,5 +1,10 @@
-//Bouton projets
+// Query selectors
 let btnProjets = document.querySelector(".projets")
+let btnContact = document.querySelector(".contact")
+let btnLogin = document.querySelector(".login")
+let logout = document.querySelector(".logout")
+
+//Bouton projets
 btnProjets.addEventListener("click", () => {
     login.style.display="none"
     contact.style.display= null
@@ -8,7 +13,6 @@ btnProjets.addEventListener("click", () => {
 })
 
 //Bouton contact
-let btnContact = document.querySelector(".contact")
 btnContact.addEventListener("click", () => {
     login.style.display="none"
     contact.style.display= null
@@ -17,7 +21,6 @@ btnContact.addEventListener("click", () => {
 })
 
 //Bouton login
-let btnLogin = document.querySelector(".login")
 btnLogin.addEventListener("click", () => {
     login.style=null
     contact.style.display= "none"
@@ -26,9 +29,10 @@ btnLogin.addEventListener("click", () => {
 })
 
 //Pour se déconnecter on vide le cache en appuyant sur logout
-let logout = document.querySelector(".logout")
-logout.addEventListener("click", () => {
-    window.localStorage.clear()
-    document.location.href="index.html"
-    console.log("Déconnecté")
-})
+try{
+    logout.addEventListener("click", () => {
+        window.localStorage.clear()
+        document.location.href="index.html"
+        console.log("Déconnecté")
+    })
+}catch{}

@@ -318,6 +318,9 @@ a:visited{
 }
 
 .modal-wrapper{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	overflow: auto;
 	width: 630px;
 	max-width: calc(100vw - 20px);
@@ -328,7 +331,7 @@ a:visited{
 }
 
 .galleryContent{
-	border-bottom: 1px solid #b3b3b3;
+	border-bottom: 1px solid #3ac057;
 	padding-bottom: 4em;
 	margin: 0 5em 0 5em;
 }
@@ -380,7 +383,9 @@ a:visited{
 
 .btnPhotoConteneur{
 	display: flex;
+	width: 70%;
 	justify-content: center;
+	border: solid 1px #b3b3b3;
 	/* border: solid blue; */
 }
 
