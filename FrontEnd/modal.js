@@ -33,24 +33,16 @@ const stopPropagation = function (e) {
 //Ouverture de la modal1 avec le bouton Modifier
 ouvrirModal1.addEventListener("click", openModal1)
 
-window.addEventListener("keydown" , function(e){
-    if (e.key === "Escape" || e.key === "Esc") {
-        closeModal1(e)
-    }
-})
-
 //Partie qui permet de gérer la modal2
-
-
 
 //Bouton ajouter photo qui ferme la modal1 et ouvre la modal2
 
 ajoutPhoto.addEventListener("click", (event) =>{
-
+    
     event.preventDefault
     modal1.style.display = "none"
     modal2.style.display = null
-
+    
     modal2.addEventListener("click", closeModal2)
     //Bouton croix qui ferme la modale 2
     modal2.querySelector(".js-modal2-close").addEventListener("click", closeModal2)
@@ -61,13 +53,13 @@ ajoutPhoto.addEventListener("click", (event) =>{
 //Bouton de retour arrière
 
 backButton.addEventListener("click", () => {
-    preview.innerHTML = ` <i class="fa-regular fa-image fa-6x"></i> `
+    preview.innerHTML = ` <i class="fa-regular fa-image fa-6x"></i> ` //Permet d'afficher l'icône par défaut si on ferme la modal avec une image en preview
     
     let erreurMessage= document.querySelector(".msgErreur")
     if(erreurMessage){
         erreurMessage.remove()
     }
-
+    
     modal1.style.display = null
     modal2.style.display = "none"
     reset.click()
@@ -79,15 +71,23 @@ const closeModal2 = function (e) {
     e.preventDefault
     
     preview.innerHTML = `<i class="fa-regular fa-image fa-6x"></i>` //Permet d'afficher l'icône par défaut si on ferme la modal avec une image en preview
-
+    
     let erreurMessage= document.querySelector(".msgErreur")
     if(erreurMessage){
         erreurMessage.remove()
     }
-
+    
     modal2.style.display = "none"
     modal2.removeEventListener("click", closeModal1)
     modal2.querySelector(".js-modal2-close").removeEventListener("click", closeModal1)
     modal2.querySelector(".js-modal2-stop").removeEventListener("click", stopPropagation)
     reset.click()
 }
+
+//Le bouton echap ferme la modal1 et 2
+window.addEventListener("keydown" , function(e){
+    if (e.key === "Escape" || e.key === "Esc") {
+        closeModal1(e)
+        closeModal2(e)
+    }
+})

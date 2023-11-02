@@ -215,17 +215,14 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+input[type="submit"]:hover{
+	cursor: pointer;
+}
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em
-}
-
-.filtres {
-	display: flex;
-	justify-content: center;
-	margin-bottom: 50px;
-	/* border: solid green; */
 }
 
 nav a:link{
@@ -235,6 +232,12 @@ nav a:link{
 
 a:visited{
 	color: inherit;
+}
+
+.filtres {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 50px;
 }
 
 .filtres button{
@@ -272,20 +275,17 @@ a:visited{
 	justify-content: center;
 	align-items: center;
 	margin: 10px;
-	/* border: solid 1px red; */
 }
 
 .elements{
 	display: flex;
 	align-items: center;
-	/* border: solid violet; */
 }
 
 .btnModif{
 	display: flex;
 	align-items: center;
 	height: 10px;
-	/* border: solid cadetblue; */
 	padding-left: 20px;
 }
 
@@ -322,25 +322,28 @@ a:visited{
 	flex-direction: column;
 	justify-content: center;
 	overflow: auto;
-	width: 630px;
+	width: 500px;
 	max-width: calc(100vw - 20px);
 	max-height: calc(100vh - 20px);
-	padding: 20px;
+	padding: 2em 5em 2em 5em;
 	background-color: #fff;
 	border-radius: 10px;
 }
 
+.btnPhotoConteneur{
+	display: flex;
+	justify-content: center;	
+	border-top: solid 1px #b3b3b3;
+}
+
 .galleryContent{
-	border-bottom: 1px solid #3ac057;
 	padding-bottom: 4em;
-	margin: 0 5em 0 5em;
 }
 
 .modal-gallery {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-column-gap: 20px;
-	grid-row-gap: 20px;
 }
 
 .modal-gallery img{
@@ -358,13 +361,11 @@ a:visited{
 .navModal1{
 	display: flex;
 	justify-content: flex-end;
-	/* border: solid 1px violet; */
 }
 
 .navModal2{
 	display: flex;
 	justify-content: space-between;
-	/* border: solid 1px violet; */
 }
 
 .closeButton, .backButton {
@@ -381,15 +382,8 @@ a:visited{
 	border: solid 1px black;
 }
 
-.btnPhotoConteneur{
-	display: flex;
-	width: 70%;
-	justify-content: center;
-	border: solid 1px #b3b3b3;
-	/* border: solid blue; */
-}
 
-.addPhotoButton div, .btnPhotoConteneur button, .validerAjoutPhoto div{
+.addPhotoButton div, .validerAjoutPhoto div{
 	color: white;
 	margin: 0.9em;
 }
@@ -401,16 +395,13 @@ a:visited{
 	background: #1D6154;
 	margin: 2em;
 	text-align: center;
-	/* border: solid red; */
 }
 
-.btnPhotoConteneur button{
-	width: 50%;
-	font-size: 1.3em;
-	border-radius: 60px;
-	background: #1D6154;
-	padding: 1em;
-	text-align: center;
+.borderValider{
+	display: flex;
+	justify-content: center;
+	border-top: solid 1px #b3b3b3;
+	margin-top: 3em;
 }
 
 .modal-wrapper a{
@@ -484,5 +475,8 @@ a:visited{
 .msgErreur{
 	color: red;
 	text-align: center;
-	margin-top: 20px;
 }
+
+/* #modal2{
+	display: none;
+} */

@@ -11,9 +11,9 @@
 		<link rel="stylesheet" href="./assets/style.css">
 		<script src="https://kit.fontawesome.com/7f5535ffac.js" crossorigin="anonymous"></script>
 		<script type="module" src="affichageTravaux.js"></script>
-		<script type="module" src="admin.js" ></script>
+		<script type="module" src="admin.js"></script>
 		<script type="module" src="modal.js"></script>
-		<script type="module" src="login.js" defer></script>
+		<script type="module" src="login.js"></script>
 		<script type="module" src="upload.js"></script>
 		<script type="module" src="nav.js"></script>
 	</head>
@@ -25,8 +25,8 @@
 				<h1>Sophie Bluel<span>Architecte d'intérieur</span></h1>
 				<nav>
 					<ul>
-						<li class="projets">projets</a></li>
-						<li class="contact"><a href="#contact">contact</a></a></li>
+						<li class="projets">projets</li>
+						<li class="contact"><a href="#contact">contact</a></li>
 						<li class="login">login</li>
 						<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 					</ul>
@@ -65,7 +65,7 @@
 							<div class="navModal1">
 								<button class="closeButton js-modal1-close">
 									<i class="fa-solid fa-xmark fa-xl"></i>
-								</button>						
+								</button>
 							</div>
 
 							<h3>Galerie photo</h3>
@@ -88,7 +88,7 @@
 							<div class="conteneurNavModal">
 
 								<div class="navModal2">
-									<button class="backButton">            
+									<button class="backButton">
 										<i class="fa-solid fa-arrow-left fa-xl"></i>
 									</button>
 									
@@ -99,19 +99,19 @@
 						
 							</div>
 							<h3>Ajout photo</h3>
-							<div class="galleryContent">
+							<!-- <div class="galleryContent"> -->
 								<section id="ajout" class="addProject">
 									<form enctype="multipart/form-data" action="#" method="POST" id="infoProjet" name="newProject">
 
 										<div class="glisserPhoto">
-											<label for="projet" class="preview"><i class="fa-regular fa-image fa-6x"></i></label>
-											<label for="projet" class="customUploadBtn">+ Ajouter photo</label>
-											<input type="file" name="image" accept=".jpg, .jpeg, .png" class="parcourirPc" required>
-											<label for="file" class="tailleMax">jpg, png : 4mo max</label>
+											<label for="image" class="preview"><i class="fa-regular fa-image fa-6x"></i></label>
+											<label for="image" class="customUploadBtn">+ Ajouter photo</label>
+											<input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" class="parcourirPc" required>
+											<label for="image" class="tailleMax">jpg, png : 4mo max</label>
 										</div>
 										
 										<label for="title">Titre</label>
-										<input type="text" name="title" id="titre" placeholder="Nom du projet">
+										<input type="text" name="title" id="title" placeholder="Nom du projet">
 
 										<label for="category">Catégorie</label>
 										<select name="category" id="category">
@@ -120,19 +120,14 @@
 											<option value="2">Appartements</option>
 											<option value="3">Hotels & restaurants</option>
 										</select>
-										<input type="submit" value="Envoyer" class="submit">
+										<div class="borderValider">
+											<input type="submit" value="Valider" class="submit">
+										</div>
 
 										<input type="reset" name="reset" id="reset" style="display: none;">
 									</form>
 								</section>
-							</div>
-
-							<div class="btnPhotoConteneur">
-								<a href="#modal2" class="validerAjoutPhoto">
-									<div>Valider</div>
-								</a>
-							</div>
-
+							<!-- </div> -->
 						</div>
 					</aside>
 
@@ -145,6 +140,7 @@
 					<li><button class="btn-appartements">Appartements</button></li>
 					<li><button class="btn-hotels">Hôtels & restaurants</button></li>
 				</ul>
+
 				<div class="gallery">
 					<!-- Les travaux seront générés ici dans le html -->
 				</div>

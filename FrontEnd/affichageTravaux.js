@@ -66,7 +66,7 @@ window.createWorkItemInModal = function (work){
     //Gestion de la suppression des travaux
     btnDelete.addEventListener("click", ()=>{
         console.log(work.id)
-        fetch(`${backendBaseUrl} \+ /api/works/${work.id}`, {
+        fetch(`${backendBaseUrl}/api/works/${work.id}`, {
             method : "DELETE",
             headers: {"Authorization" : `Bearer ${token.token}`},
         })
@@ -91,7 +91,6 @@ function genererTravaux(travaux){
 genererTravaux(travaux)
 
 // Les différents boutons filtre
-
 
 btnFiltreTous.addEventListener("click", ()=>{
     const tousFiltre = travaux.filter(function (travaux){

@@ -6,26 +6,26 @@ let logout = document.querySelector(".logout")
 
 //Bouton projets
 btnProjets.addEventListener("click", () => {
-    login.style.display="none"
-    contact.style.display= null
-    introduction.style.display= null
-    portfolio.style.display= null
+    login.style.display ="none"
+    contact.style.display = null
+    introduction.style.display = null
+    portfolio.style.display = null
 })
 
 //Bouton contact
 btnContact.addEventListener("click", () => {
-    login.style.display="none"
-    contact.style.display= null
-    introduction.style.display= null
-    portfolio.style.display= null
+    login.style.display ="none"
+    contact.style.display = null
+    introduction.style.display = null
+    portfolio.style.display = null
 })
 
 //Bouton login
 btnLogin.addEventListener("click", () => {
-    login.style=null
-    contact.style.display= "none"
-    introduction.style.display= "none"
-    portfolio.style.display= "none"
+    login.style = null
+    contact.style.display = "none"
+    introduction.style.display = "none"
+    portfolio.style.display = "none"
 })
 
 //Pour se déconnecter on vide le cache en appuyant sur logout

@@ -5,6 +5,7 @@ let submit = document.querySelector(".submit")
 let erreurMessage = document.querySelector(".erreurMessage")
 let validerBtn = document.querySelector(".validerAjoutPhoto")
 let preview = document.querySelector(".preview")
+let ajoutProjet = document.querySelector(".addProject")
 
 const backendBaseUrl = "http://localhost:5678"
 
@@ -13,10 +14,6 @@ const travaux = await works.json()
 
 customUploadBtn.addEventListener("click", () => {
     upload.click()
-})
-
-validerBtn.addEventListener("click", () => {
-    submit.click()
 })
 
 upload.addEventListener("change", (previewProjet))
@@ -70,8 +67,9 @@ let token = JSON.parse(tokenStored)
 infoProjet.addEventListener("submit", (event) => {
   event.preventDefault()
 
-  let projetFormdata = new FormData(event.target)
+console.log(erreurMessage)
 
+  let projetFormdata = new FormData(event.target)
   console.log(projetFormdata)
 
   gererForm(projetFormdata)
@@ -82,36 +80,33 @@ infoProjet.addEventListener("submit", (event) => {
       headers: {"Authorization" : `Bearer ${token.token}`},
   })
   .then(async (response) => {
+    //Si la requête est valide, on créé lle nouveua projet dans les galeries, on reset le formulaire et on supprime le message d'erreur s'il existe.
     if (response.ok) {
       alert("Projet envoyé !")
       const newWorkItem = await response.json();
       window.createWorkItemInModal(newWorkItem);
+      reset.click()
+      if(erreurMessage){
+        erreurMessage.remove()
+      }
     }
-    reset.click()
     previewProjet()
-    // if(erreurMessage){
-    //   erreurMessage.remove()
-    // }
   })
 })
 
 // Fonction d'intégration du message d'erreur dans le HTML
 function afficherMessageErreur(message){
-
-  if (!erreurMessage){
-      let ajoutProjet = document.querySelector(".addProject")
-      erreurMessage = document.createElement("div")
-      erreurMessage.classList = "msgErreur"
-
-      ajoutProjet.appendChild(erreurMessage)
-  }
-  erreurMessage.innerText = message
+    
+  erreurMessage = document.createElement("div")
+  erreurMessage.classList = "msgErreur"
+  ajoutProjet.appendChild(erreurMessage)
+  erreurMessage.textContent = message
 }
 
 //Fonction qui gère les informations du formulaire pour afficher ou non le message d'erreur
 function gererForm(form){
   try{
-      if(form.get("title") === "" || form.get("category") === ""){
+    if(form.get("title") === "" || form.get("category") === ""){
           throw new Error ("Formulaire incomplet")
       }
   }catch(erreur){
