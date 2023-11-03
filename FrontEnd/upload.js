@@ -67,10 +67,9 @@ let token = JSON.parse(tokenStored)
 infoProjet.addEventListener("submit", (event) => {
   event.preventDefault()
 
-console.log(erreurMessage)
-
   let projetFormdata = new FormData(event.target)
   console.log(projetFormdata)
+  console.log(projetFormdata.get("image").size)
 
   gererForm(projetFormdata)
 
@@ -80,11 +79,11 @@ console.log(erreurMessage)
       headers: {"Authorization" : `Bearer ${token.token}`},
   })
   .then(async (response) => {
-    //Si la requête est valide, on créé lle nouveua projet dans les galeries, on reset le formulaire et on supprime le message d'erreur s'il existe.
+    //Si la requête est valide, on créé le nouveua projet dans les galeries, on reset le formulaire et on supprime le message d'erreur s'il existe.
     if (response.ok) {
       alert("Projet envoyé !")
-      const newWorkItem = await response.json();
-      window.createWorkItemInModal(newWorkItem);
+      const newWorkItem = await response.json()
+      window.createWorkItemInModal(newWorkItem)
       reset.click()
       if(erreurMessage){
         erreurMessage.remove()
@@ -109,6 +108,9 @@ function gererForm(form){
     if(form.get("title") === "" || form.get("category") === ""){
           throw new Error ("Formulaire incomplet")
       }
+      //  else if(form.get("image").size > 1048576){
+      //   throw new Error ("Fichier trop volumineux")
+      // }
   }catch(erreur){
       afficherMessageErreur(erreur.message)
   }

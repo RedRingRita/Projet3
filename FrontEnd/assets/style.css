@@ -330,6 +330,10 @@ a:visited{
 	border-radius: 10px;
 }
 
+.extContenu{
+	
+}
+
 .btnPhotoConteneur{
 	display: flex;
 	justify-content: center;	

@@ -46,8 +46,8 @@
 				</article>
 			</section>
 			<section id="portfolio" style="display: null;">
+				<!-- Contenu pour la modal -->
 				<div>
-					<!-- Contenu pour la modal -->
 					<div class="projects">
 						<div class="elements">
 							<h2>
@@ -59,6 +59,8 @@
 						</div>
 					</div>
 						
+					<!-- Modale 1 -->
+
 					<aside id="modal1" class="modal" style="display: none;">
 						<div class="modal-wrapper js-modal1-stop">
 
@@ -83,56 +85,52 @@
 						</div>
 					</aside>
 
+					<!-- Modale 2 -->
+
 					<aside id="modal2" class="modal" style="display: none;">
 						<div class="modal-wrapper js-modal2-stop">
-							<div class="conteneurNavModal">
-
-								<div class="navModal2">
-									<button class="backButton">
-										<i class="fa-solid fa-arrow-left fa-xl"></i>
-									</button>
-									
-									<button class="closeButton js-modal2-close">            
-										<i class="fa-solid fa-xmark fa-xl"></i>
-									</button>
-								</div>
-						
+							<div class="navModal2">
+								<button class="backButton">
+									<i class="fa-solid fa-arrow-left fa-xl"></i>
+								</button>
+								
+								<button class="closeButton js-modal2-close">            
+									<i class="fa-solid fa-xmark fa-xl"></i>
+								</button>
 							</div>
+							
 							<h3>Ajout photo</h3>
-							<!-- <div class="galleryContent"> -->
-								<section id="ajout" class="addProject">
-									<form enctype="multipart/form-data" action="#" method="POST" id="infoProjet" name="newProject">
-
-										<div class="glisserPhoto">
-											<label for="image" class="preview"><i class="fa-regular fa-image fa-6x"></i></label>
-											<label for="image" class="customUploadBtn">+ Ajouter photo</label>
-											<input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" class="parcourirPc" required>
-											<label for="image" class="tailleMax">jpg, png : 4mo max</label>
-										</div>
-										
-										<label for="title">Titre</label>
-										<input type="text" name="title" id="title" placeholder="Nom du projet">
-
-										<label for="category">Catégorie</label>
-										<select name="category" id="category">
-											<option value="">--Choisissez une catégorie--</option>
-											<option value="1">Objets</option>
-											<option value="2">Appartements</option>
-											<option value="3">Hotels & restaurants</option>
-										</select>
-										<div class="borderValider">
-											<input type="submit" value="Valider" class="submit">
-										</div>
-
-										<input type="reset" name="reset" id="reset" style="display: none;">
-									</form>
-								</section>
-							<!-- </div> -->
+							<section id="ajout" class="addProject">
+								<form enctype="multipart/form-data" action="#" method="POST" id="infoProjet" name="newProject">
+									
+									<div class="glisserPhoto">
+										<label for="image" class="preview"><i class="fa-regular fa-image fa-6x"></i></label>
+										<label for="image" class="customUploadBtn">+ Ajouter photo</label>
+										<input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" class="parcourirPc" required>
+										<label for="image" class="tailleMax">jpg, png : 4mo max</label>
+									</div>
+									
+									<label for="title">Titre</label>
+									<input type="text" name="title" id="title" placeholder="Nom du projet">
+									
+									<label for="category">Catégorie</label>
+									<select name="category" id="category">
+										<option value="">--Choisissez une catégorie--</option>
+										<option value="1">Objets</option>
+										<option value="2">Appartements</option>
+										<option value="3">Hotels & restaurants</option>
+									</select>
+									<div class="borderValider">
+										<input type="submit" value="Valider" class="submit">
+									</div>
+									
+									<input type="reset" name="reset" id="reset" style="display: none;">
+								</form>
+							</section>
 						</div>
 					</aside>
-
-					<!-- Fin contenu pour la modal -->
 				</div>
+				<!-- Fin contenu pour la modal -->
 
 				<ul class="filtres">
 					<li><button class="btn-tous">Tous</button></li>

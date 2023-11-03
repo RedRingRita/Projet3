@@ -14,7 +14,6 @@ try{
     if (token.token !== null){
         logout.textContent = "logout"
         logout.classList.add("logout")
-        // logout.classList.remove("login")
         modeEdition.style.display = null
         filtres.style.display="none"
         jsModal.style.display=null
